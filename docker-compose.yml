@@ -1,0 +1,13 @@
+version: '3'
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.3.2.23-alpine
+    volumes:
+      - ./clickhouse.init.1.sql:/docker-entrypoint-initdb.d/clickhouse.init.1.sql
+      - ./clickhouse.init.2.sql:/docker-entrypoint-initdb.d/clickhouse.init.2.sql
+      - ./clickhouse.init.3.sql:/docker-entrypoint-initdb.d/clickhouse.init.3.sql
+      - ./clickhouse.init.4.sql:/docker-entrypoint-initdb.d/clickhouse.init.4.sql
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+
